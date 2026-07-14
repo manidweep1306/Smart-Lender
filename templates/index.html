@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Lender | AI Loan Approval System</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="icon" href="{{ url_for('static', filename='bank.png') }}">
+
+</head>
+
+<body>
+
+<div class="container py-5">
+
+    <div class="card">
+
+        <img src="{{ url_for('static', filename='bank.png') }}"
+             width="90"
+             class="d-block mx-auto mb-3">
+
+        <h1 class="text-center text-primary">
+            🏦 Smart Lender
+        </h1>
+
+        <p class="text-center text-muted mb-4">
+            AI Powered Loan Approval Prediction System
+        </p>
+
+        <form action="/predict" method="POST">
+
+            <!-- Personal Details -->
+
+            <h4 class="text-primary">👤 Personal Details</h4>
+            <hr>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Gender</label>
+
+                    <select class="form-select" name="Gender">
+
+                        <option>Male</option>
+                        <option>Female</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Married</label>
+
+                    <select class="form-select" name="Married">
+
+                        <option>Yes</option>
+                        <option>No</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Dependents</label>
+
+                    <select class="form-select" name="Dependents">
+
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3+</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">Education</label>
+
+                    <select class="form-select" name="Education">
+
+                        <option>Graduate</option>
+                        <option>Not Graduate</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">Self Employed</label>
+
+                <select class="form-select" name="Self_Employed">
+
+                    <option>No</option>
+                    <option>Yes</option>
+
+                </select>
+
+            </div>
+
+            <!-- Financial Details -->
+
+            <h4 class="text-success">💰 Financial Details</h4>
+            <hr>
+
+            <div class="mb-3">
+
+                <label class="form-label">Applicant Income</label>
+
+                <input class="form-control"
+                       type="number"
+                       name="ApplicantIncome"
+                       placeholder="Enter Applicant Income"
+                       required>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">Co-Applicant Income</label>
+
+                <input class="form-control"
+                       type="number"
+                       name="CoapplicantIncome"
+                       placeholder="Enter Co-Applicant Income"
+                       required>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">Loan Amount</label>
+
+                <input class="form-control"
+                       type="number"
+                       name="LoanAmount"
+                       placeholder="Enter Loan Amount"
+                       required>
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">Loan Amount Term</label>
+
+                <input class="form-control"
+                       type="number"
+                       name="Loan_Amount_Term"
+                       value="360"
+                       required>
+
+            </div>
+
+            <!-- Other Details -->
+
+            <h4 class="text-warning">🏠 Other Details</h4>
+            <hr>
+
+            <div class="mb-3">
+
+                <label class="form-label">Credit History</label>
+
+                <select class="form-select" name="Credit_History">
+
+                    <option value="1">Good (1)</option>
+                    <option value="0">Poor (0)</option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">Property Area</label>
+
+                <select class="form-select" name="Property_Area">
+
+                    <option>Urban</option>
+                    <option>Semiurban</option>
+                    <option>Rural</option>
+
+                </select>
+
+            </div>
+
+            <div class="d-grid">
+
+                <button type="submit" class="btn btn-primary btn-lg">
+
+                    Predict Loan Status
+
+                </button>
+
+            </div>
+
+        </form>
+
+        {% if prediction %}
+
+        <div class="alert alert-{{alert}} mt-5">
+
+            <h3 class="text-center">{{ prediction }}</h3>
+
+            <h5 class="text-center">
+
+                Confidence : {{ confidence }}%
+
+            </h5>
+
+            <div class="progress mt-3">
+
+                <div
+                    class="progress-bar progress-bar-striped progress-bar-animated"
+                    role="progressbar"
+                    style="width: {{ confidence }}%;">
+
+                    {{ confidence }}%
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    <footer class="text-center text-white mt-4">
+
+        <hr>
+
+        <h6>Smart Lender • Loan Approval Prediction using Machine Learning</h6>
+
+        <small>Developed by Dharani</small>
+
+    </footer>
+
+</div>
+
+</body>
+
+</html>
