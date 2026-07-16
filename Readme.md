@@ -1,78 +1,111 @@
-# Smart Lender 🏦
-**AI-Powered Loan Approval Prediction System**
+# 🏦 Smart-Lender: AI-Powered Loan Approval Prediction
 
-Smart Lender is a machine learning-powered web application designed to predict the creditworthiness of loan applicants. By leveraging classification algorithms, this platform enables banks and financial institutions to make faster, data-driven, and unbiased loan approval decisions. 
+**Smart-Lender** is a premium, automated credit underwriting and loan eligibility assessment system. Leveraging a machine learning classifier wrapped in a responsive Flask web application, it automates standard mortgage credit profiling—assessing demographic and financial risk variables in under 2 seconds.
 
 ---
 
-## 🚀 Overview
+## 🚀 Key Features
 
-Manual loan verification is often time-consuming and prone to inconsistency. Smart Lender automates this process by evaluating structured applicant inputs—such as gender, marital status, education, employment status, income, loan amount, credit history, and property area—to determine the likelihood of loan repayment or default. 
-
-After training and evaluating multiple models, **XGBoost** emerged as the best-performing algorithm (94.7% training accuracy and 81.1% testing accuracy) and is integrated into this Flask-based web application for real-time predictions.
-
-### Key Use Cases
-* **Fast-Track Approval:** Automatically approve low-risk applicants with stable income and good credit history without manual review.
-* **High-Risk Detection:** Flag applicants with irregular income or poor credit for further scrutiny and document verification.
-* **Batch Evaluation:** Rapidly process multiple applications during high-volume periods, reducing evaluation time while maintaining compliance.
+*   **Premium Web Interface**: An interactive, responsive client dashboard for inputting applicant parameters.
+*   **Predictive Inference Engine**: Implements a serialized, fine-tuned **XGBoost Classifier** achieving **85.6% Accuracy**.
+*   **Imbalance Handling (SMOTE)**: Integrated Synthetic Minority Over-sampling Technique to balance historical risk biases.
+*   **Real-time Output Visualization**: Clean HTML visual feedback indicating loan approval with dedicated outcomes.
+*   **Structured Lifecycle Documentation**: Includes a complete set of 22 professional-grade design, requirement, and testing documents mapped across 8 phases.
 
 ---
 
 ## 🛠️ Technology Stack
 
-* **Core Programming:** Python 3.8+
-* **Web Framework:** Flask
-* **Machine Learning:** Scikit-learn, XGBoost, SciPy
-* **Data Manipulation:** Pandas, NumPy
-* **Data Visualization:** Matplotlib, Seaborn
-* **Frontend:** HTML, CSS
+| Layer | Component | Justification |
+| :--- | :--- | :--- |
+| **Logic & Backend** | Python 3.10+, Flask | Lightweight, performant WSGI micro-framework for running serialized ML models. |
+| **Machine Learning** | XGBoost, Scikit-Learn | Extreme Gradient Boosting classifier for high-accuracy tabular datasets. |
+| **Preprocessing & Scaling** | Pandas, NumPy, StandardScaler | Pipeline normalization and label dictionary translations. |
+| **Model Serialization** | Joblib | Low-overhead loading of model binary structures on application startup. |
+| **Documentation Pipeline** | ReportLab | Programmatic generation of standardized company-grade PDF documents. |
 
 ---
 
-## 🏗️ System Architecture & Workflow
+## 📂 Repository Layout
 
-The system follows a three-tier modular architecture—separating the user interface, backend API, and ML modules—developed across five core epics:
+The project adheres to the standardized **AI/ML & Gen-AI Track Project Template** layout, organizing comprehensive documentation across 8 distinct phases:
 
-1. **Data Collection & Architecture:** Leveraging open-source datasets and defining a scalable folder structure.
-2. **Data Analysis:** Utilizing Univariate, Bivariate, and Multivariate analysis (via `seaborn` and `matplotlib`) to uncover feature patterns.
-3. **Data Pre-processing:** Handling missing values, encoding categorical variables, scaling features, and addressing class imbalances using **SMOTE** (Synthetic Minority Over-sampling Technique).
-4. **Model Building:** Training Decision Tree, Random Forest, K-Nearest Neighbors (KNN), and XGBoost models. Evaluated using confusion matrices and cross-validation.
-5. **Application Building:** Deployment via a Flask routing structure connecting `home.html`, `predict.html`, and `submit.html` interfaces to the `predict()` backend function.
+```text
+📁 Smart-Lender
+│
+├── 📁 1. Brainstorming & Ideation
+│   ├── 📄 Brainstorming & Idea Prioritization.pdf
+│   ├── 📄 Define Problem Statements .pdf
+│   └── 📄 Empathy Map.pdf
+│
+├── 📁 2. Requirement Analysis
+│   ├── 📄 Customer Journey Map.pdf
+│   ├── 📄 Data Flow Diagram.pdf
+│   ├── 📄 Solution Requirements.pdf
+│   └── 📄 Technology Stack.pdf
+│
+├── 📁 3. Project Design Phase
+│   ├── 📄 Problem-Solution Fit.pdf
+│   ├── 📄 Proposed Solution.pdf
+│   └── 📄 Solution Architecture.pdf
+│
+├── 📁 4. Project Planning Phase
+│   └── 📄 Project Planning.pdf
+│
+├── 📁 5. Project Development Phase
+│   ├── 📄 Code-Layout, Readability and Reusability.pdf
+│   ├── 📄 Coding & Solution.pdf
+│   └── 📄 No. of Functional Features Included in the Solution.pdf
+│
+├── 📁 6.Project Testing
+│   └── 📄 Performance Testing.pdf
+│
+├── 📁 7.Project Documentation
+│   ├── 📄 Project Executable Files.pdf
+│   └── 📄 Sample Project Documentation.pdf
+│
+└── 📁 8.Project Demonstration
+    ├── 📄 Communication.pdf
+    ├── 📄 Demonstration of Proposed Features.pdf
+    ├── 📄 Project Demo Planning.pdf
+    ├── 📄 Scalability & Future Plan.pdf
+    └── 📄 Team Involvement in Demonstration.pdf
+```
 
 ---
 
-## 💻 System Requirements
+## ⚙️ Setup & Local Execution
 
-**Hardware:**
-* **Processor:** Intel i3 or above
-* **RAM:** 4 GB (8 GB recommended)
-* **Storage:** 10 GB free space
-* **System Type:** 64-bit OS
+### 1. Clone the Repository
+```bash
+git clone https://github.com/dharani756/Smart-Lender.git
+cd Smart-Lender
+```
 
-**Software:**
-* **OS:** Windows 10/11 / Linux / macOS
-* **Environment:** Anaconda Navigator / standard Python environment
-* **IDE:** PyCharm / VS Code
+### 2. Set Up Virtual Environment & Dependencies
+```bash
+python -m venv venv
+# Windows
+.\venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+### 3. Run the Application
+```bash
+python app.py
+```
+Open your browser and navigate to `http://127.0.0.1:5000` to interact with the interface.
 
 ---
 
-## ⚙️ Installation & Usage
+## 👥 Submitted By
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/manidweep1306/Smart-Lender.git](https://github.com/manidweep1306/Smart-Lender.git)
-   cd Smart-Lender
-
----
-
-## ⚙️ Installation & Usage
-
-1. **Install dependencies:**
-   Ensure you have Python 3.8+ installed, then run:
-   ```bash
-   pip install -r requirements.txt
-
-2. **Run the application:**
-    python app.py
-
-
+*   **Team Leader**: Palli Dharani
+*   **Team Members**:
+    *   Yarabarla Manidweep
+    *   Saikiran Kudipudi
+    *   Sita Rama Raju Datla
+    *   Thota Leela Sai Krishna
